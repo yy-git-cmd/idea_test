@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.user.test.dao.CiUserMapper" >
+  <resultMap id="BaseResultMap" type="com.user.test.pojo.CiUser" >
+    <id column="object_id" property="objectId" jdbcType="VARCHAR" />
+    <result column="hiddle_password" property="hiddlePassword" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modification_user_id" property="modificationUserId" jdbcType="VARCHAR" />
+    <result column="modification_time" property="modificationTime" jdbcType="TIMESTAMP" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="ci_name" property="ciName" jdbcType="VARCHAR" />
+    <result column="true_name" property="trueName" jdbcType="VARCHAR" />
+    <result column="table_no" property="tableNo" jdbcType="VARCHAR" />
+    <result column="employee_no" property="employeeNo" jdbcType="VARCHAR" />
+    <result column="leader_name" property="leaderName" jdbcType="VARCHAR" />
+    <result column="card" property="card" jdbcType="VARCHAR" />
+    <result column="head_img_url" property="headImgUrl" jdbcType="VARCHAR" />
+    <result column="mobile_number" property="mobileNumber" jdbcType="VARCHAR" />
+    <result column="email_address" property="emailAddress" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="INTEGER" />
+    <result column="district" property="district" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="enum_sex" property="enumSex" jdbcType="CHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="struct_id" property="structId" jdbcType="VARCHAR" />
+    <result column="position_id" property="positionId" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="enum_type" property="enumType" jdbcType="CHAR" />
+    <result column="enum_user_type" property="enumUserType" jdbcType="CHAR" />
+    <result column="is_public" property="isPublic" jdbcType="BIT" />
+    <result column="is_paid" property="isPaid" jdbcType="BIT" />
+    <result column="is_enable" property="isEnable" jdbcType="BIT" />
+    <result column="enum_approval_status" property="enumApprovalStatus" jdbcType="CHAR" />
+    <result column="approval_content" property="approvalContent" jdbcType="VARCHAR" />
+    <result column="rid" property="rid" jdbcType="VARCHAR" />
+    <result column="collection_count" property="collectionCount" jdbcType="INTEGER" />
+    <result column="im_id" property="imId" jdbcType="VARCHAR" />
+    <result column="foreign_trans_jsonb" property="foreignTransJsonb" jdbcType="OTHER" />
+    <result column="is_working" property="isWorking" jdbcType="BIT" />
+    <result column="choose_leader" property="chooseLeader" jdbcType="BIT" />
+    <result column="work_tell" property="workTell" jdbcType="BIT" />
+    <result column="is_clerk" property="isClerk" jdbcType="BIT" />
+    <result column="is_married" property="isMarried" jdbcType="VARCHAR" />
+    <result column="nativeplace" property="nativeplace" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="political" property="political" jdbcType="VARCHAR" />
+    <result column="educationbackground" property="educationbackground" jdbcType="VARCHAR" />
+    <result column="professional" property="professional" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="other_num" property="otherNum" jdbcType="VARCHAR" />
+    <result column="detailed_address" property="detailedAddress" jdbcType="VARCHAR" />
+    <result column="assessory" property="assessory" jdbcType="VARCHAR" />
+    <result column="standby_one" property="standbyOne" jdbcType="VARCHAR" />
+    <result column="standby_two" property="standbyTwo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    object_id, hiddle_password, del_flag, pid, sort, create_user_id, create_time, modification_user_id, 
+    modification_time, user_name, password, nick_name, ci_name, true_name, table_no, 
+    employee_no, leader_name, card, head_img_url, mobile_number, email_address, province, 
+    city, district, address, enum_sex, birthday, struct_id, position_id, remark, enum_type, 
+    enum_user_type, is_public, is_paid, is_enable, enum_approval_status, approval_content, 
+    rid, collection_count, im_id, foreign_trans_jsonb, is_working, choose_leader, work_tell, 
+    is_clerk, is_married, nativeplace, location, political, educationbackground, professional, 
+    school, phone_number, qq, other_num, detailed_address, assessory, standby_one, standby_two
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ci_user
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ci_user
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.user.test.pojo.CiUser" >
+    insert into ci_user (object_id, hiddle_password, del_flag, 
+      pid, sort, create_user_id, 
+      create_time, modification_user_id, modification_time, 
+      user_name, password, nick_name, 
+      ci_name, true_name, table_no, 
+      employee_no, leader_name, card, 
+      head_img_url, mobile_number, email_address, 
+      province, city, district, 
+      address, enum_sex, birthday, 
+      struct_id, position_id, remark, 
+      enum_type, enum_user_type, is_public, 
+      is_paid, is_enable, enum_approval_status, 
+      approval_content, rid, collection_count, 
+      im_id, foreign_trans_jsonb, is_working, 
+      choose_leader, work_tell, is_clerk, 
+      is_married, nativeplace, location, 
+      political, educationbackground, professional, 
+      school, phone_number, qq, 
+      other_num, detailed_address, assessory, 
+      standby_one, standby_two)
+    values (#{objectId,jdbcType=VARCHAR}, #{hiddlePassword,jdbcType=VARCHAR}, #{delFlag,jdbcType=BIT}, 
+      #{pid,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{createUserId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modificationUserId,jdbcType=VARCHAR}, #{modificationTime,jdbcType=TIMESTAMP}, 
+      #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{ciName,jdbcType=VARCHAR}, #{trueName,jdbcType=VARCHAR}, #{tableNo,jdbcType=VARCHAR}, 
+      #{employeeNo,jdbcType=VARCHAR}, #{leaderName,jdbcType=VARCHAR}, #{card,jdbcType=VARCHAR}, 
+      #{headImgUrl,jdbcType=VARCHAR}, #{mobileNumber,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR}, 
+      #{province,jdbcType=INTEGER}, #{city,jdbcType=INTEGER}, #{district,jdbcType=INTEGER}, 
+      #{address,jdbcType=VARCHAR}, #{enumSex,jdbcType=CHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{structId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{enumType,jdbcType=CHAR}, #{enumUserType,jdbcType=CHAR}, #{isPublic,jdbcType=BIT}, 
+      #{isPaid,jdbcType=BIT}, #{isEnable,jdbcType=BIT}, #{enumApprovalStatus,jdbcType=CHAR}, 
+      #{approvalContent,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{collectionCount,jdbcType=INTEGER}, 
+      #{imId,jdbcType=VARCHAR}, #{foreignTransJsonb,jdbcType=OTHER}, #{isWorking,jdbcType=BIT}, 
+      #{chooseLeader,jdbcType=BIT}, #{workTell,jdbcType=BIT}, #{isClerk,jdbcType=BIT}, 
+      #{isMarried,jdbcType=VARCHAR}, #{nativeplace,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{political,jdbcType=VARCHAR}, #{educationbackground,jdbcType=VARCHAR}, #{professional,jdbcType=VARCHAR}, 
+      #{school,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{otherNum,jdbcType=VARCHAR}, #{detailedAddress,jdbcType=VARCHAR}, #{assessory,jdbcType=VARCHAR}, 
+      #{standbyOne,jdbcType=VARCHAR}, #{standbyTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.user.test.pojo.CiUser" >
+    insert into ci_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        object_id,
+      </if>
+      <if test="hiddlePassword != null" >
+        hiddle_password,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modificationUserId != null" >
+        modification_user_id,
+      </if>
+      <if test="modificationTime != null" >
+        modification_time,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="ciName != null" >
+        ci_name,
+      </if>
+      <if test="trueName != null" >
+        true_name,
+      </if>
+      <if test="tableNo != null" >
+        table_no,
+      </if>
+      <if test="employeeNo != null" >
+        employee_no,
+      </if>
+      <if test="leaderName != null" >
+        leader_name,
+      </if>
+      <if test="card != null" >
+        card,
+      </if>
+      <if test="headImgUrl != null" >
+        head_img_url,
+      </if>
+      <if test="mobileNumber != null" >
+        mobile_number,
+      </if>
+      <if test="emailAddress != null" >
+        email_address,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="enumSex != null" >
+        enum_sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="structId != null" >
+        struct_id,
+      </if>
+      <if test="positionId != null" >
+        position_id,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="enumType != null" >
+        enum_type,
+      </if>
+      <if test="enumUserType != null" >
+        enum_user_type,
+      </if>
+      <if test="isPublic != null" >
+        is_public,
+      </if>
+      <if test="isPaid != null" >
+        is_paid,
+      </if>
+      <if test="isEnable != null" >
+        is_enable,
+      </if>
+      <if test="enumApprovalStatus != null" >
+        enum_approval_status,
+      </if>
+      <if test="approvalContent != null" >
+        approval_content,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="collectionCount != null" >
+        collection_count,
+      </if>
+      <if test="imId != null" >
+        im_id,
+      </if>
+      <if test="foreignTransJsonb != null" >
+        foreign_trans_jsonb,
+      </if>
+      <if test="isWorking != null" >
+        is_working,
+      </if>
+      <if test="chooseLeader != null" >
+        choose_leader,
+      </if>
+      <if test="workTell != null" >
+        work_tell,
+      </if>
+      <if test="isClerk != null" >
+        is_clerk,
+      </if>
+      <if test="isMarried != null" >
+        is_married,
+      </if>
+      <if test="nativeplace != null" >
+        nativeplace,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="political != null" >
+        political,
+      </if>
+      <if test="educationbackground != null" >
+        educationbackground,
+      </if>
+      <if test="professional != null" >
+        professional,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="otherNum != null" >
+        other_num,
+      </if>
+      <if test="detailedAddress != null" >
+        detailed_address,
+      </if>
+      <if test="assessory != null" >
+        assessory,
+      </if>
+      <if test="standbyOne != null" >
+        standby_one,
+      </if>
+      <if test="standbyTwo != null" >
+        standby_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="objectId != null" >
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="hiddlePassword != null" >
+        #{hiddlePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modificationUserId != null" >
+        #{modificationUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modificationTime != null" >
+        #{modificationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="ciName != null" >
+        #{ciName,jdbcType=VARCHAR},
+      </if>
+      <if test="trueName != null" >
+        #{trueName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableNo != null" >
+        #{tableNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeNo != null" >
+        #{employeeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderName != null" >
+        #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="card != null" >
+        #{card,jdbcType=VARCHAR},
+      </if>
+      <if test="headImgUrl != null" >
+        #{headImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNumber != null" >
+        #{mobileNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="enumSex != null" >
+        #{enumSex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="structId != null" >
+        #{structId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionId != null" >
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enumType != null" >
+        #{enumType,jdbcType=CHAR},
+      </if>
+      <if test="enumUserType != null" >
+        #{enumUserType,jdbcType=CHAR},
+      </if>
+      <if test="isPublic != null" >
+        #{isPublic,jdbcType=BIT},
+      </if>
+      <if test="isPaid != null" >
+        #{isPaid,jdbcType=BIT},
+      </if>
+      <if test="isEnable != null" >
+        #{isEnable,jdbcType=BIT},
+      </if>
+      <if test="enumApprovalStatus != null" >
+        #{enumApprovalStatus,jdbcType=CHAR},
+      </if>
+      <if test="approvalContent != null" >
+        #{approvalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionCount != null" >
+        #{collectionCount,jdbcType=INTEGER},
+      </if>
+      <if test="imId != null" >
+        #{imId,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignTransJsonb != null" >
+        #{foreignTransJsonb,jdbcType=OTHER},
+      </if>
+      <if test="isWorking != null" >
+        #{isWorking,jdbcType=BIT},
+      </if>
+      <if test="chooseLeader != null" >
+        #{chooseLeader,jdbcType=BIT},
+      </if>
+      <if test="workTell != null" >
+        #{workTell,jdbcType=BIT},
+      </if>
+      <if test="isClerk != null" >
+        #{isClerk,jdbcType=BIT},
+      </if>
+      <if test="isMarried != null" >
+        #{isMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null" >
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="educationbackground != null" >
+        #{educationbackground,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null" >
+        #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherNum != null" >
+        #{otherNum,jdbcType=VARCHAR},
+      </if>
+      <if test="detailedAddress != null" >
+        #{detailedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="assessory != null" >
+        #{assessory,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyOne != null" >
+        #{standbyOne,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyTwo != null" >
+        #{standbyTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.user.test.pojo.CiUser" >
+    update ci_user
+    <set >
+      <if test="hiddlePassword != null" >
+        hiddle_password = #{hiddlePassword,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=BIT},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modificationUserId != null" >
+        modification_user_id = #{modificationUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="modificationTime != null" >
+        modification_time = #{modificationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="ciName != null" >
+        ci_name = #{ciName,jdbcType=VARCHAR},
+      </if>
+      <if test="trueName != null" >
+        true_name = #{trueName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableNo != null" >
+        table_no = #{tableNo,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeNo != null" >
+        employee_no = #{employeeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderName != null" >
+        leader_name = #{leaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="card != null" >
+        card = #{card,jdbcType=VARCHAR},
+      </if>
+      <if test="headImgUrl != null" >
+        head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNumber != null" >
+        mobile_number = #{mobileNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddress != null" >
+        email_address = #{emailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="enumSex != null" >
+        enum_sex = #{enumSex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="structId != null" >
+        struct_id = #{structId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionId != null" >
+        position_id = #{positionId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enumType != null" >
+        enum_type = #{enumType,jdbcType=CHAR},
+      </if>
+      <if test="enumUserType != null" >
+        enum_user_type = #{enumUserType,jdbcType=CHAR},
+      </if>
+      <if test="isPublic != null" >
+        is_public = #{isPublic,jdbcType=BIT},
+      </if>
+      <if test="isPaid != null" >
+        is_paid = #{isPaid,jdbcType=BIT},
+      </if>
+      <if test="isEnable != null" >
+        is_enable = #{isEnable,jdbcType=BIT},
+      </if>
+      <if test="enumApprovalStatus != null" >
+        enum_approval_status = #{enumApprovalStatus,jdbcType=CHAR},
+      </if>
+      <if test="approvalContent != null" >
+        approval_content = #{approvalContent,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionCount != null" >
+        collection_count = #{collectionCount,jdbcType=INTEGER},
+      </if>
+      <if test="imId != null" >
+        im_id = #{imId,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignTransJsonb != null" >
+        foreign_trans_jsonb = #{foreignTransJsonb,jdbcType=OTHER},
+      </if>
+      <if test="isWorking != null" >
+        is_working = #{isWorking,jdbcType=BIT},
+      </if>
+      <if test="chooseLeader != null" >
+        choose_leader = #{chooseLeader,jdbcType=BIT},
+      </if>
+      <if test="workTell != null" >
+        work_tell = #{workTell,jdbcType=BIT},
+      </if>
+      <if test="isClerk != null" >
+        is_clerk = #{isClerk,jdbcType=BIT},
+      </if>
+      <if test="isMarried != null" >
+        is_married = #{isMarried,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null" >
+        nativeplace = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="educationbackground != null" >
+        educationbackground = #{educationbackground,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null" >
+        professional = #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null" >
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="otherNum != null" >
+        other_num = #{otherNum,jdbcType=VARCHAR},
+      </if>
+      <if test="detailedAddress != null" >
+        detailed_address = #{detailedAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="assessory != null" >
+        assessory = #{assessory,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyOne != null" >
+        standby_one = #{standbyOne,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyTwo != null" >
+        standby_two = #{standbyTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.user.test.pojo.CiUser" >
+    update ci_user
+    set hiddle_password = #{hiddlePassword,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=BIT},
+      pid = #{pid,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modification_user_id = #{modificationUserId,jdbcType=VARCHAR},
+      modification_time = #{modificationTime,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      ci_name = #{ciName,jdbcType=VARCHAR},
+      true_name = #{trueName,jdbcType=VARCHAR},
+      table_no = #{tableNo,jdbcType=VARCHAR},
+      employee_no = #{employeeNo,jdbcType=VARCHAR},
+      leader_name = #{leaderName,jdbcType=VARCHAR},
+      card = #{card,jdbcType=VARCHAR},
+      head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+      mobile_number = #{mobileNumber,jdbcType=VARCHAR},
+      email_address = #{emailAddress,jdbcType=VARCHAR},
+      province = #{province,jdbcType=INTEGER},
+      city = #{city,jdbcType=INTEGER},
+      district = #{district,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      enum_sex = #{enumSex,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      struct_id = #{structId,jdbcType=VARCHAR},
+      position_id = #{positionId,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      enum_type = #{enumType,jdbcType=CHAR},
+      enum_user_type = #{enumUserType,jdbcType=CHAR},
+      is_public = #{isPublic,jdbcType=BIT},
+      is_paid = #{isPaid,jdbcType=BIT},
+      is_enable = #{isEnable,jdbcType=BIT},
+      enum_approval_status = #{enumApprovalStatus,jdbcType=CHAR},
+      approval_content = #{approvalContent,jdbcType=VARCHAR},
+      rid = #{rid,jdbcType=VARCHAR},
+      collection_count = #{collectionCount,jdbcType=INTEGER},
+      im_id = #{imId,jdbcType=VARCHAR},
+      foreign_trans_jsonb = #{foreignTransJsonb,jdbcType=OTHER},
+      is_working = #{isWorking,jdbcType=BIT},
+      choose_leader = #{chooseLeader,jdbcType=BIT},
+      work_tell = #{workTell,jdbcType=BIT},
+      is_clerk = #{isClerk,jdbcType=BIT},
+      is_married = #{isMarried,jdbcType=VARCHAR},
+      nativeplace = #{nativeplace,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      political = #{political,jdbcType=VARCHAR},
+      educationbackground = #{educationbackground,jdbcType=VARCHAR},
+      professional = #{professional,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      other_num = #{otherNum,jdbcType=VARCHAR},
+      detailed_address = #{detailedAddress,jdbcType=VARCHAR},
+      assessory = #{assessory,jdbcType=VARCHAR},
+      standby_one = #{standbyOne,jdbcType=VARCHAR},
+      standby_two = #{standbyTwo,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+</mapper>
